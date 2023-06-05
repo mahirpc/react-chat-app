@@ -13,9 +13,9 @@ const Join = () => {
   }
   return (
     <main className="flex flex-col justify-center items-center h-screen bg-gray-200">
-        <div className="flex flex-col justify-center items-start w-4/5 md:w-3/5 max-w-3/5 lg:w-[600px] px-8 py-2
-                        border border-gray-500 rounded-lg shadow-lg shadow-gray-300
-                        lg:mx-auto bg-white"
+        <div className="flex flex-col justify-center items-start w-4/5 md:w-3/5 
+                        max-w-[500px] lg:w-[500px] px-8 py-2 lg:mx-auto bg-white
+                        border border-gray-500 rounded-lg shadow-lg shadow-gray-300"
         >
           <h1 className=" font-serif text-4xl p-2 mx-auto mb-6">Join Room</h1>
           <div className='flex flex-col justify-start items-start w-full'>
