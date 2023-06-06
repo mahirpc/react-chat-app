@@ -4,6 +4,7 @@ import io from 'socket.io-client'
 import {useLocation} from 'react-router-dom'
 
 import Infobar from '../infobar/Infobar'
+import Input from '../input/Input'
 
 let socket;
 
@@ -53,19 +54,15 @@ const Chat = () => {
   }
   
   return (
-    <main className='flex flex-row justify-center items-center'>
-      <div className='flex flex-col justify-start items-center'>
-        <Infobar />
-        <input type='text' 
-          className='border-2 border-gray-400 rounded-md p-2 m-2'
-          value={message} 
-          onChange={(e)=>{setMessage(e.target.value)}}
-          onKeyDown={event => event.key === 'Enter' ? 
-                              sendMessage(event) : 
-                              null
-                    }  
-        />
-
+    <main className='flex flex-row justify-center items-center p-5 bg-slate-400 h-screen'>
+      <div className='flex flex-col justify-start w-2/5 bg-slate-600
+                      border-2 border-gray-400 rounded-lg h-4/5 text-white'
+        >
+        <Infobar room={room}/>
+        <div>
+          
+        </div>
+        <Input message={message} setMessage={setMessage} sendMessage={sendMessage}/>
       </div>
     </main>
   )
