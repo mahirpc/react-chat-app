@@ -14,7 +14,7 @@ const Infobar = ({room}) => {
             <h3 className='pl-2 font-semibold text-xl'>{room}</h3>
         </div>
         <div className='flex pr-5'>
-            <a href='/'><img src={closeIcon} alt='close image'/></a>
+            <a href='/'><img src={closeIcon} alt='close'/></a>
         </div>
       
     </div>
