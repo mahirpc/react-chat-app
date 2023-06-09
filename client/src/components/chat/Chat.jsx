@@ -13,6 +13,7 @@ let socket;
 const Chat = () => {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
+  const [users, setUsers] = useState();
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const ENDPOINT = 'localhost:5000'
@@ -45,7 +46,10 @@ const Chat = () => {
   useEffect(()=>{
     socket.on('message', (message)=>{
       setMessages([...messages, message])
-    })
+    });
+    socket.on('roomData', ({users})=>{
+      setUsers(users);
+    });
   },[messages])
 
   //function for sending messages
