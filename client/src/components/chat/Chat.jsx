@@ -21,16 +21,20 @@ const Chat = () => {
 
     socket = io(ENDPOINT,{
       transports: ['websocket'],
-      upgrade: false,
+      upgrade: true,
     })
 
     setName(name);
     setRoom(room);
 
-    socket.emit('join', {name, room},   ()=>{    }  );
+    socket.emit('join', {name, room},   (error)=>{
+      if(error){
+        alert(error);
+      }
+    }  );
 
     return () => {
-      socket.emit('disconnectNew');
+      socket.emit('disconnect');
       socket.off();
     }
 
