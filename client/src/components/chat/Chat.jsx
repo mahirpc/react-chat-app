@@ -6,6 +6,7 @@ import {useLocation} from 'react-router-dom'
 import Infobar from '../infobar/Infobar'
 import Input from '../input/Input'
 import Messages from '../messages/Messages'
+import TextContainer from '../textContainer/TextContainer'
 
 let socket;
 
@@ -67,6 +68,7 @@ const Chat = () => {
         <Messages messages={messages} name={name}/>
         <Input message={message} setMessage={setMessage} sendMessage={sendMessage}/>
       </div>
+      <TextContainer users={users}/>
     </main>
   )
 }
