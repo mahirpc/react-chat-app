@@ -36,7 +36,7 @@ const Chat = () => {
     }  );
 
     return () => {
-      socket.emit('disconnect');
+      // socket.emit('disconnect');
       socket.off();
     }
 
@@ -47,10 +47,13 @@ const Chat = () => {
     socket.on('message', (message)=>{
       setMessages([...messages, message])
     });
-    socket.on('roomData', ({users})=>{
+    socket.on('roomData', ({room,users})=>{
       setUsers(users);
     });
-  },[messages])
+
+  },[messages]);
+
+  let nameOfUsers = users?.map((user)=>user.name);
 
   //function for sending messages
   const sendMessage = (event) => {
@@ -72,7 +75,7 @@ const Chat = () => {
         <Messages messages={messages} name={name}/>
         <Input message={message} setMessage={setMessage} sendMessage={sendMessage}/>
       </div>
-      <TextContainer users={users}/>
+      <TextContainer users={nameOfUsers}/>
     </main>
   )
 }

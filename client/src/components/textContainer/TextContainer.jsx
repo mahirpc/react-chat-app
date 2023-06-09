@@ -1,9 +1,10 @@
 import React from 'react'
 
-const TextContainer = () => {
+const TextContainer = ({users}) => {
+
   return (
     <div>
-      
+      {users}
     </div>
   )
 }
