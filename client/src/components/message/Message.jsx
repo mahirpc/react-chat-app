@@ -36,11 +36,15 @@ const Message = ({message:{user,text}, name}) => {
             </div>
         </div>
     ) : (
-        <div className='flex flex-row justify-center'>
-            <div className=' bg-slate-500'>
-                <p className=' text-slate-800'>{ReactEmoji.emojify(text)}</p>
+        <div className='flex flex-row justify-center px-2 mb-1'>
+            <div className='flex flex-col justify-start bg-slate-700 px-3 py-0.5 rounded-lg'>
+                <p className='text-xs rounded-md m-auto'>
+                    {trimmedName}
+                </p>
+                <div className='text-sm'>
+                    <p className=' text-white'>{ReactEmoji.emojify(text)}</p>
+                </div>
             </div>
-            <p className=''>{user}</p>
         </div>
     )
   )
