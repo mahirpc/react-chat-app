@@ -53,7 +53,7 @@ const Chat = () => {
 
   },[messages]);
 
-  let nameOfUsers = users?.map((user)=>user.name);
+  let nameOfUsers = users?.map((user)=><p key={user.id}>{user.name}</p>);
 
   //function for sending messages
   const sendMessage = (event) => {
@@ -71,11 +71,11 @@ const Chat = () => {
       <div className='flex flex-col justify-start w-2/5 bg-slate-600
                       border-2 border-gray-400 rounded-lg h-4/5 text-white'
         >
-        <Infobar room={room}/>
+        <Infobar room={room} users={nameOfUsers}/>
         <Messages messages={messages} name={name}/>
         <Input message={message} setMessage={setMessage} sendMessage={sendMessage}/>
       </div>
-      <TextContainer users={nameOfUsers}/>
+      {/* <TextContainer users={nameOfUsers}/> */}
     </main>
   )
 }
