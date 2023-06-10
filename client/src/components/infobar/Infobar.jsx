@@ -16,17 +16,21 @@ const Infobar = ({room, users}) => {
             <h3 className='pl-2 font-semibold text-xl'>{room}</h3>
         </div>
         <div className='flex pr-5'>
-          <div className='flex flex-col justify-start'>
+          <div className='flex flex-col justify-start items-center'>
             <p onClick={()=>setDropdown(prevState => !prevState)}
-                className='text-white font-semibold cursor-pointer'
+                className='text-white font-semibold cursor-pointer mr-5 text-green-600'
             >
               users online
             </p>
             {dropdown && 
-              <div className=' absolute top-5 bg-white text-black pl-3 pr-3'>{users}</div>
+              <div className=' absolute top-28 bg-white text-black pl-3 pr-3
+                             rounded-md z-10'
+              >
+                {users}
+              </div>
             }
           </div>
-            <a href='/'><img src={closeIcon} alt='close'/></a>
+            <a href='/'><img src={closeIcon} className='pt-2' alt='close'/></a>
         </div>
       
     </div>
