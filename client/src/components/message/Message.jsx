@@ -16,9 +16,9 @@ const Message = ({message:{user,text}, name}) => {
     sentBy === "own" ? (
         <div className='flex flex-row justify-end px-2 mb-1'>
             <div className='flex flex-col justify-start bg-blue-500 px-3 py-0.5 rounded-lg'>
-                <p className='text-xs rounded-md ml-auto'>
+                {/* <p className='text-xs rounded-md ml-auto'>
                     {trimmedName}
-                </p>
+                </p> */}
                 <div className='text-sm'>
                     <p className=' text-white'>{ReactEmoji.emojify(text)}</p>
                 </div>
@@ -28,7 +28,7 @@ const Message = ({message:{user,text}, name}) => {
         <div className='flex flex-row justify-start px-2 mb-1'>
             <div className='flex flex-col justify-start bg-slate-500 px-3 py-0.5 rounded-lg'>
                 <p className='text-xs rounded-md mr-auto'>
-                    {trimmedName}
+                    {user}
                 </p>
                 <div className='text-sm'>
                     <p className=' text-white'>{ReactEmoji.emojify(text)}</p>
@@ -36,10 +36,11 @@ const Message = ({message:{user,text}, name}) => {
             </div>
         </div>
     ) : (
+        // admin messages
         <div className='flex flex-row justify-center px-2 mb-1'>
             <div className='flex flex-col justify-start bg-slate-700 px-3 py-0.5 rounded-lg'>
                 <p className='text-xs rounded-md m-auto'>
-                    {trimmedName}
+                    {user}
                 </p>
                 <div className='text-sm'>
                     <p className=' text-white'>{ReactEmoji.emojify(text)}</p>
