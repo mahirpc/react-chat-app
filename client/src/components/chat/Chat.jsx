@@ -15,6 +15,7 @@ const Chat = () => {
   const [users, setUsers] = useState();
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
+  const [errorOnJoin, setErrorOnJoin ] = useState(false)
   const ENDPOINT = 'localhost:5000'
   const location = useLocation();
   useEffect(()=>{
@@ -29,9 +30,7 @@ const Chat = () => {
     setRoom(room);
 
     socket.emit('join', {name, room},   (error)=>{
-      if(error){
-        alert(error);
-      }
+      setErrorOnJoin(prevState => !prevState)
     }  );
 
     return () => {
@@ -65,6 +64,11 @@ const Chat = () => {
   }
   
   return (
+    errorOnJoin ? (
+      <main className='flex flex-row justify-center items-center p-5 bg-slate-400 h-screen'>
+          <h1 className='text-3xl font-semibold text-center'>Error on Joining</h1>
+      </main>
+    ) :
     <main className='flex flex-row justify-center items-center p-5 bg-slate-400 h-screen'>
       <div className='flex flex-col justify-start w-2/5 bg-slate-600
                       border-2 border-gray-400 rounded-lg h-4/5 text-white'
