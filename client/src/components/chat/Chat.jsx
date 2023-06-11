@@ -23,7 +23,7 @@ const Chat = () => {
 
     socket = io(ENDPOINT,{
       transports: ['websocket'],
-      upgrade: true,
+      upgrade: false,
     })
 
     setName(name);
