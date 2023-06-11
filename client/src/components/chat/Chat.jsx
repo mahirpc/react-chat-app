@@ -30,7 +30,9 @@ const Chat = () => {
     setRoom(room);
 
     socket.emit('join', {name, room},   (error)=>{
-      setErrorOnJoin(prevState => !prevState)
+      if(error){
+        setErrorOnJoin(prevState => !prevState)
+      }
     }  );
 
     return () => {
@@ -69,15 +71,17 @@ const Chat = () => {
           <h1 className='text-3xl font-semibold text-center'>Error on Joining</h1>
       </main>
     ) :
-    <main className='flex flex-row justify-center items-center p-5 bg-slate-400 h-screen'>
-      <div className='flex flex-col justify-start w-2/5 bg-slate-600
-                      border-2 border-gray-400 rounded-lg h-4/5 text-white'
-        >
-        <Infobar room={room} users={nameOfUsers}/>
-        <Messages messages={messages} name={name}/>
-        <Input message={message} setMessage={setMessage} sendMessage={sendMessage}/>
-      </div>
-   </main>
+    (
+      <main className='flex flex-row justify-center items-center p-5 bg-slate-400 h-screen'>
+        <div className='flex flex-col justify-start w-2/5 bg-slate-600
+                        border-2 border-gray-400 rounded-lg h-4/5 text-white'
+          >
+          <Infobar room={room} users={nameOfUsers}/>
+          <Messages messages={messages} name={name}/>
+          <Input message={message} setMessage={setMessage} sendMessage={sendMessage}/>
+        </div>
+      </main>
+    )
   )
 }
 
